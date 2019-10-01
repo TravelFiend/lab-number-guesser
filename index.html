@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Guess A Number</title>
 </head>
 
 <body>
-
+    <main>
+        <section>
+            <h1>Guess a Number</h1>
+            <h2>In the text box below, input a number between (and including) 1 and 20. You have four guesses to pick the same
+                number as the computer. Good luck!</h2>
+            <p>Tries Remaining: <span id="tries-remaining">#</span></p>
+            <input type="text">
+            <button>Submit</button>
+            <p><span id="number-comparison">Too High</span></p>
+        </section>
+        <section>
+            <h3>You got it!</h3>
+            <p>You: <span id="user-number"></span> Computer: <span id="computer-number"></span></p>
+        </section>
+    </main>
     <script src="app.js"></script>
 </body>
 
