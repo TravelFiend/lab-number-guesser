@@ -11,6 +11,8 @@ const numberComparison = document.getElementById('number-comparison');
 
 let tries = 4;
 
+const guessingSection = document.getElementById('guessing-section');
+
 const resultsSection = document.getElementById('results-section');
 
 const gameOverHeading = document.getElementById('game-over-heading');
@@ -28,12 +30,14 @@ submitButton.addEventListener('click', () => {
     const theNumbers = compareNumbers(userNumber, computerGuess);
 
     if (tries === 0) {
-      numberComparison.textContent = "Game Over!";
       submitButton.disabled = true;
-      resultsSection.style.display = "block";
       gameOverHeading.textContent = "Womp Womp";
+      numberComparison.style.display = "none";
+      resultsSection.style.display = "block";
+      guessingSection.style.display = "none";
 
     } else if (theNumbers === 0) {
+      guessingSection.style.display = "none";
       submitButton.disabled = true;
       resultsSection.style.display = "block";
       gameOverHeading.textContent = "You Got It!";
