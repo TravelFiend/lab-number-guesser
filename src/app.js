@@ -35,8 +35,11 @@ submitButton.addEventListener('click', () => {
     userGuess.textContent = userNumber;
     
     const theNumbers = compareNumbers(userNumber, computerGuess);
-
-    if (tries === 0) {
+    if (theNumbers === "invalid") {
+      console.log(theNumbers)
+      numberComparison.textContent = "That doesn't seem to be a number between 1 and 20.";
+      
+    } else if (tries === 0) {
       submitButton.disabled = true;
       gameOverHeading.textContent = "Womp Womp";
       numberComparison.style.display = "none";
