@@ -3,8 +3,8 @@ import compareNumbers from './functions.js';
 const userGuess = document.getElementById('user-number');
 
 function randomComputerNumber(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-};
+    return Math.floor(Math.random() * Math.floor(max));
+}
 
 let computerGuess = randomComputerNumber(21);
 
@@ -27,6 +27,7 @@ const gameOverHeading = document.getElementById('game-over-heading');
 const submitButton = document.getElementById('submit-button');
 
 submitButton.addEventListener('click', () => {
+
     tries = tries - 1;
 
     triesRemaining.textContent = tries;
@@ -35,32 +36,30 @@ submitButton.addEventListener('click', () => {
     userGuess.textContent = userNumber;
     
     const theNumbers = compareNumbers(userNumber, computerGuess);
-    if (theNumbers === "invalid") {
-      console.log(theNumbers)
-      numberComparison.textContent = "That doesn't seem to be a number between 1 and 20.";
-      
-    } else if (tries === 0) {
-      submitButton.disabled = true;
-      gameOverHeading.textContent = "Womp Womp";
-      numberComparison.style.display = "none";
-      resultsSection.style.display = "block";
-      guessingSection.style.display = "none";
+    if (theNumbers === 'invalid') {
+        console.log(theNumbers);
+        numberComparison.textContent = "That doesn't seem to be a number between 1 and 20.";
 
     } else if (theNumbers === 0) {
-      guessingSection.style.display = "none";
-      submitButton.disabled = true;
-      resultsSection.style.display = "block";
-      gameOverHeading.textContent = "You Got It!";
+        guessingSection.style.display = 'none';
+        submitButton.disabled = true;
+        resultsSection.style.display = 'block';
+        gameOverHeading.textContent = 'You Got It!';
 
     } else if (theNumbers === -1) {
 
-      numberComparison.textContent = 'Hmm... too low.';
+        numberComparison.textContent = 'Hmm... too low.';
+
+    } else if (tries === 0) {
+        submitButton.disabled = true;
+        gameOverHeading.textContent = 'Womp Womp';
+        numberComparison.style.display = 'none';
+        resultsSection.style.display = 'block';
+        guessingSection.style.display = 'none';
 
     } else {
-      numberComparison.textContent = 'Nope, that\'s too high.';
-    };
-
-    
+        numberComparison.textContent = 'Nope, that\'s too high.';
+    }
 
     
 });
