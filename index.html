@@ -15,14 +15,14 @@
             <h1>Guess a Number</h1>
             <h2>In the text box below, input a number between (and including) 1 and 20. You have four guesses to pick the same
                 number as the computer. Good luck!</h2>
-            <p>Tries Remaining: <span id="tries-remaining">#</span></p>
-            <input type="text">
-            <button>Submit</button>
-            <p><span id="number-comparison">Too High</span></p>
+            <p>Tries Remaining: <span id="tries-remaining">4</span></p>
+            <input id="user-number" type="number">
+            <button id="submit-button">Submit</button>
+            <p><span id="number-comparison"></span></p>
         </section>
-        <section>
-            <h3>You got it!</h3>
-            <p>You: <span id="user-number"></span> Computer: <span id="computer-number"></span></p>
+        <section id="results-section" style="display: none;">
+            <h3><span id="game-over-heading"></span></h3>
+            <p>The number was: <span id="computer-number"></span></p>
         </section>
     </main>
     <script type="module" src="src/app.js"></script>

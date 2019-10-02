@@ -1,2 +1,52 @@
 import compareNumbers from './functions.js';
 
+const userGuess = document.getElementById('user-number');
+
+const computerGuess = 18;
+const computerNumber = document.getElementById('computer-number');
+computerNumber.textContent = computerGuess;
+
+const triesRemaining = document.getElementById('tries-remaining');
+const numberComparison = document.getElementById('number-comparison');
+
+let tries = 4;
+
+const resultsSection = document.getElementById('results-section');
+
+const gameOverHeading = document.getElementById('game-over-heading');
+
+const submitButton = document.getElementById('submit-button');
+
+submitButton.addEventListener('click', () => {
+    tries = tries - 1;
+
+    triesRemaining.textContent = tries;
+
+    const userNumber = parseInt(userGuess.value, 10);
+    userGuess.textContent = userNumber;
+    
+    const theNumbers = compareNumbers(userNumber, computerGuess);
+
+    if (tries === 0) {
+      numberComparison.textContent = "Game Over!";
+      submitButton.disabled = true;
+      resultsSection.style.display = "block";
+      gameOverHeading.textContent = "Womp Womp";
+
+    } else if (theNumbers === 0) {
+      submitButton.disabled = true;
+      resultsSection.style.display = "block";
+      gameOverHeading.textContent = "You Got It!";
+
+    } else if (theNumbers === -1) {
+
+      numberComparison.textContent = 'Hmm... too low.';
+
+    } else {
+      numberComparison.textContent = 'Nope, that\'s too high.';
+    };
+
+    
+
+    
+});
