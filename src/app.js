@@ -2,9 +2,18 @@ import compareNumbers from './functions.js';
 
 const userGuess = document.getElementById('user-number');
 
-const computerGuess = 18;
+function randomComputerNumber(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+
+let computerGuess = randomComputerNumber(21);
+
+console.log(computerGuess);
+
 const computerNumber = document.getElementById('computer-number');
 computerNumber.textContent = computerGuess;
+
+
 
 const triesRemaining = document.getElementById('tries-remaining');
 const numberComparison = document.getElementById('number-comparison');
@@ -12,9 +21,7 @@ const numberComparison = document.getElementById('number-comparison');
 let tries = 4;
 
 const guessingSection = document.getElementById('guessing-section');
-
 const resultsSection = document.getElementById('results-section');
-
 const gameOverHeading = document.getElementById('game-over-heading');
 
 const submitButton = document.getElementById('submit-button');
