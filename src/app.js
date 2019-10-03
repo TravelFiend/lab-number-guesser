@@ -1,10 +1,11 @@
+//Important the compareNumbers function from './functions.js
 import compareNumbers from './functions.js';
 
 const userGuess = document.getElementById('user-number');
 
 function randomComputerNumber(max) {
     return Math.floor(Math.random() * Math.floor(max));
-}
+};
 
 let computerGuess = randomComputerNumber(21);
 
@@ -12,8 +13,6 @@ console.log(computerGuess);
 
 const computerNumber = document.getElementById('computer-number');
 computerNumber.textContent = computerGuess;
-
-
 
 const triesRemaining = document.getElementById('tries-remaining');
 const numberComparison = document.getElementById('number-comparison');
@@ -29,6 +28,7 @@ const submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', () => {
 
     tries = tries - 1;
+    console.log(tries);
 
     triesRemaining.textContent = tries;
 
@@ -46,16 +46,16 @@ submitButton.addEventListener('click', () => {
         resultsSection.style.display = 'block';
         gameOverHeading.textContent = 'You Got It!';
 
+    } else if (tries === 0) {
+      submitButton.disabled = true;
+      gameOverHeading.textContent = 'Womp Womp';
+      numberComparison.style.display = 'none';
+      resultsSection.style.display = 'block';
+      guessingSection.style.display = 'none';
+
     } else if (theNumbers === -1) {
 
         numberComparison.textContent = 'Hmm... too low.';
-
-    } else if (tries === 0) {
-        submitButton.disabled = true;
-        gameOverHeading.textContent = 'Womp Womp';
-        numberComparison.style.display = 'none';
-        resultsSection.style.display = 'block';
-        guessingSection.style.display = 'none';
 
     } else {
         numberComparison.textContent = 'Nope, that\'s too high.';
